@@ -1,6 +1,10 @@
 <template>
   <div class="app">
     <header>
+      <div class="title">
+        <img src="./assets/heart.svg" alt="site logo">
+        <h1>Hyrule Jobs</h1>
+      </div>
       <div class="order">
         <button @click="handleClick('title')">Order by title</button>
         <button @click="handleClick('salary')">Order by salary</button>
@@ -9,6 +13,10 @@
     </header>
 
     <JobList :jobs="jobs" :order="order" />
+
+    <footer>
+      <div class="foot">Copyright © 2021 | Ayoub Abidi</div>
+    </footer>
   </div>
 </template>
 
@@ -17,7 +25,6 @@ import { defineComponent, ref } from 'vue';
 import Job from '@/types/Job'
 import OrderTerm from '@/types/OrderTerm'
 import JobList from './components/JobList.vue'
-
 export default defineComponent({
   name: 'App',
   components: { JobList },
@@ -54,5 +61,20 @@ export default defineComponent({
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
+  }
+  header .title{
+    display: flex;
+    justify-content: center;
+  }
+  header img {
+    width: 60px;
+    margin-right: 20px;
+  }
+  header h1 {
+    font-size: 3em;
+  }
+  .foot {
+    text-align: center;
+    padding-bottom: 10px;
   }
 </style>
